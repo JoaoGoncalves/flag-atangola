@@ -13,8 +13,10 @@
           <td>{{ employee.firstName }} {{ employee.lastName }}</td>
           <td>{{ employee.position }}</td>
           <td>
-            <button>Delete</button>
+            <button (click)="showConfimationDialog()">Delete</button>
           </td>
         </tr>
       </tbody>
     </table>
+    <ng-container *ngComponentOutlet="confirmDialog"></ng-container>
+    

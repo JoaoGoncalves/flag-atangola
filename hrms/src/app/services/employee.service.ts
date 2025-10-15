@@ -6,10 +6,16 @@ import { Employee } from '../infrastructure/types/employee';
   providedIn: 'root'
 } */)
 export class EmployeeService {
+
+  private readonly api = 'https://my-json-server.typicode.com/JoaoGoncalves/hrms-api';
   
   constructor(private readonly http: HttpClient){}
 
   getEmployees(){
-    return this.http.get<Employee[]>('https://my-json-server.typicode.com/JoaoGoncalves/hrms-api/employees');
+    return this.http.get<Employee[]>(`${this.api}/employees`);
+  }
+
+  getemployee(id:number){
+    return this.http.get<Employee>(`${this.api}/employees/${id}`)
   }
 }

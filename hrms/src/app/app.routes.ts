@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
 import { Login } from './pages/login/login';
 import { EmployeeService } from './services/employee.service';
+import { routes as employeeRoutes } from './pages/employees/employees.routes';
+import { AuthClassGuard } from './shared/guards/auth-class-guard';
+import { authGuard } from './shared/guards/auth-guard';
 
 export const routes: Routes = [
     {path: 'login', component: Login},
@@ -19,12 +22,18 @@ export const routes: Routes = [
             return m.Registration
         }
     },
-    {
+    /* {
         path: 'employees',
         providers: [EmployeeService],
         loadChildren: async  () => {
             const m = await import('./pages/employees/employees.routes');
             return m.routes;
         }
-    }
+    } */
+   {
+    path: 'employees',
+    canActivate: [/* AuthClassGuard */ authGuard],
+    providers: [EmployeeService],
+    children: employeeRoutes,   
+  },
 ];
