@@ -3,10 +3,11 @@ import { EmployeeService } from '../../../services/employee.service';
 import { AsyncPipe, NgComponentOutlet, NgFor } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Employee } from '../../../infrastructure/types/employee';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
-  imports: [NgFor, AsyncPipe, NgComponentOutlet],
+  imports: [NgFor, AsyncPipe, NgComponentOutlet, RouterLink],
   templateUrl: './employee-list.html',
   styleUrl: './employee-list.css'
 })
