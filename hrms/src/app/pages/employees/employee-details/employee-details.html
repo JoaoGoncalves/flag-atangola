@@ -2,5 +2,10 @@
     <h1>Employee Detail</h1>
     <p>First Name: {{employee.firstName}}</p>
     <p>Last Name: {{employee.lastName}}</p>
-    <p>Position: {{employee.position}}</p>
+    <p appTruncate [limit]="5">Position: {{employee.position}}</p>
+
+    <p appTruncate>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet, deleniti quasi eaque est beatae minima cupiditate, nam dolores consequatur dicta inventore non a cum maiores ut atque quia soluta placeat.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi a qui aliquid cum porro consequatur sint fugiat. Recusandae voluptatum praesentium iusto, rerum dolore aliquid odio quaerat, doloremque, voluptatibus velit veniam?
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime velit vero, impedit voluptatum debitis aliquam asperiores nulla dolorum, laboriosam at atque optio expedita unde, ea placeat recusandae ducimus minima veritatis!
+    </p>
 </section>
