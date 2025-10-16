@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { mapToCanActivate, Routes } from '@angular/router';
 import { Login } from './pages/login/login';
 import { EmployeeService } from './services/employee.service';
 import { routes as employeeRoutes } from './pages/employees/employees.routes';
@@ -32,7 +32,7 @@ export const routes: Routes = [
     } */
    {
     path: 'employees',
-    canActivate: [/* AuthClassGuard */ authGuard],
+    canActivate: mapToCanActivate([AuthClassGuard /* authGuard */]),
     providers: [EmployeeService],
     children: employeeRoutes,   
   },

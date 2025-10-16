@@ -24,4 +24,10 @@ export class AuthServices {
       tap( () => this.isAuth$.next(false))
     )
   }
+
+  getToken(){
+    return 'cb3f008a-b24d-4caa-90e4-9ac74075dac2'
+  }
+
+
 }
