@@ -1,0 +1,5 @@
+<article *ngIf="project$ | async as project">
+    <img [src]="project.image" width="150" >
+    <p>{{project.name}}</p>
+    <hr>
+</article>

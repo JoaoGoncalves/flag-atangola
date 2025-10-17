@@ -6,8 +6,8 @@ import { AuthClassGuard } from './shared/guards/auth-class-guard';
 import { authGuard } from './shared/guards/auth-guard';
 
 export const routes: Routes = [
-    {path: 'login', component: Login},
-    /* {
+  { path: 'login', component: Login },
+  /* {
         path: 'registration',
         loadComponent: () => {
             return import('./pages/registration/registration').then(
@@ -15,25 +15,34 @@ export const routes: Routes = [
             )
         }
     } */
-   {
-        path: 'registration',
-        loadComponent: async  () => {
-            const m = await import('./pages/registration/registration');
-            return m.Registration
-        }
+  {
+    path: 'registration',
+    loadComponent: async () => {
+      const m = await import('./pages/registration/registration');
+      return m.Registration;
     },
-    /* {
-        path: 'employees',
-        providers: [EmployeeService],
-        loadChildren: async  () => {
-            const m = await import('./pages/employees/employees.routes');
-            return m.routes;
-        }
-    } */
-   {
+  },
+  {
     path: 'employees',
-    canActivate: mapToCanActivate([AuthClassGuard /* authGuard */]),
+    providers: [EmployeeService],
+    canActivate: [authGuard],
+    loadChildren: async () => {
+      const m = await import('./pages/employees/employees.routes');
+      return m.routes;
+    },
+  },
+  /*  {
+    path: 'employees',
+    canActivate: mapToCanActivate([AuthClassGuard]),
     providers: [EmployeeService],
     children: employeeRoutes,   
+  }, */
+  {
+    path: 'work',
+    canActivate: [authGuard],
+    loadChildren: async () => {
+        const m = await import('./pages/work/work.routes');
+        return m.routes;
+    }
   },
 ];
