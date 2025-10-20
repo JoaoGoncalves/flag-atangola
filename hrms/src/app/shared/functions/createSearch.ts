@@ -2,8 +2,8 @@ import { DestroyRef, inject } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { debounceTime, Subject, takeUntil } from "rxjs";
 
-export function createSearch<T>(control: FormControl<T>){
-    const destroyRef = inject(DestroyRef);
+export function createSearch<T>(control: FormControl<T>, destroyRef = inject(DestroyRef)){
+    //const destroyRef = inject(DestroyRef);
 
     const destroy$ = new Subject<void>();
     destroyRef.onDestroy( ()=> destroy$.next())
