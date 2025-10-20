@@ -6,7 +6,7 @@ import { BehaviorSubject, filter, from, interval, map, Observable, of, Subject, 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Footer, FileUpload],
+  imports: [RouterOutlet, Footer, /* FileUpload */],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -84,7 +84,7 @@ export class App {
     let oberverBS2 = random2.subscribe(num => console.log('ObserverSubject2 :', num)); 
     let oberverBS3 = random2.subscribe(num => console.log('ObserverSubject3 :', num));  */
 
-
+/* 
     console.log('----------------------------------'); 
 
     let subject = new Subject();
@@ -103,7 +103,7 @@ export class App {
     bSubject.next('a');
     bSubject.next('b');
     subject.next('c');
-    subject.next('d');
+    subject.next('d'); */
 
 
 }

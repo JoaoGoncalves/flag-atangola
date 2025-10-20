@@ -45,4 +45,12 @@ export const routes: Routes = [
         return m.routes;
     }
   },
+  {
+    path: 'recruitment',
+    canActivate: [authGuard],
+    loadChildren: async () => {
+        const m = await import('./pages/recruitment/recruitment.routes');
+        return m.routes;
+    }
+  }
 ];
